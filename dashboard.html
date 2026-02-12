@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FPDS Professional Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>FPDS Dashboard</h2>
+    <div>
+        <a href="faculty.html">Manage Faculty</a>
+        <a href="index.html" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+    <h1 id="welcomeMessage"></h1>
+    <p id="todayDate"></p>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Total Faculty</h3>
+            <p id="totalFaculty">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Sessions</h3>
+            <p id="totalSessions">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Leave Days</h3>
+            <p id="totalLeave">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Performance Status</h3>
+            <p id="performanceStatus">Good</p>
+        </div>
+
+    </div>
+
+    <div class="report-section">
+        <h3>Faculty Workload & Leave Report</h3>
+
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Sessions</th>
+                    <th>Leave Days</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

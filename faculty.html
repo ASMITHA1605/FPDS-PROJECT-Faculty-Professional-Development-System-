@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Faculty Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Faculty Management</h2>
+    <a href="dashboard.html">Dashboard</a>
+</div>
+
+<div class="form-container">
+    <h3>Add Faculty</h3>
+
+    <input type="text" id="name" placeholder="Faculty Name">
+    <input type="text" id="department" placeholder="Department">
+    <input type="text" id="skill" placeholder="Skill">
+
+    <button onclick="addFaculty()">Add Faculty</button>
+
+    <hr>
+
+    <input type="text" id="search" placeholder="Search Faculty..." onkeyup="searchFaculty()">
+
+    <h3>Faculty List</h3>
+    <table id="facultyTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Skill</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

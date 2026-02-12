@@ -1,0 +1,253 @@
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+.login-container, .form-container {
+    width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar {
+    background: #007BFF;
+    color: white;
+    padding: 15px;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+button {
+    margin: 5px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+/* Login Page Advanced Styling */
+
+.login-body {
+    background: linear-gradient(to right, #4e73df, #1cc88a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+    color: #4e73df;
+}
+
+.login-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.login-box input,
+.login-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: #4e73df;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-box button:hover {
+    background: #2e59d9;
+}
+.dashboard-container {
+    padding: 30px;
+    text-align: center;
+}
+
+#welcomeMessage {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#todayDate {
+    margin-bottom: 30px;
+    color: gray;
+}
+
+.recent-section {
+    margin-top: 40px;
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.recent-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-section li {
+    padding: 5px;
+}
+.dashboard-container {
+    padding: 30px;
+}
+
+.welcome-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4e73df;
+}
+
+.quick-actions {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.quick-actions button {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.recent-section {
+    background: white;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+.recent-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-section li {
+    padding: 8px;
+}
+.report-section {
+    margin-top: 40px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+#reportTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#reportTable th, #reportTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#reportTable th {
+    background: #4e73df;
+    color: white;
+}
