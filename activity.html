@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPDS — Add Activity</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="layout">
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">🎓 FPDS</div>
+      <div class="brand-tagline">Faculty Development System</div>
+    </div>
+    <div class="sidebar-section">Main</div>
+    <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard & Tracker</a>
+    <a href="activity.html" class="active"><span class="nav-icon">➕</span> Add Activity</a>
+    <a href="activity-list.html"><span class="nav-icon">📋</span> Activity History</a>
+    <div class="sidebar-section">Account</div>
+    <a href="profile.html"><span class="nav-icon">👤</span> My Profile</a>
+    <a href="report.html"><span class="nav-icon">📊</span> Reports</a>
+    <div class="sidebar-footer">
+      <a href="index.html"><span class="nav-icon">🚪</span> Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <h1>Add Development Activity</h1>
+        <div class="header-sub">Log a new professional development record</div>
+      </div>
+    </div>
+    <div class="page-body">
+
+      <div class="form-section">
+        <div class="form-section-header">
+          <h2>Activity Details</h2>
+        </div>
+        <div class="form-section-body">
+
+          <div class="form-row">
+            <div class="field-group">
+              <label>Activity Type</label>
+              <select id="type">
+                <option value="Workshop">Workshop</option>
+                <option value="Conference">Conference</option>
+                <option value="FDP">FDP Program</option>
+                <option value="Publication">Publication</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Activity Title</label>
+              <input type="text" id="title" placeholder="e.g. Machine Learning Workshop">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field-group">
+              <label>Date</label>
+              <input type="date" id="date">
+            </div>
+            <div class="field-group">
+              <label>Organizer / Institution</label>
+              <input type="text" id="organizer" placeholder="e.g. IIT Bombay">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field-group">
+              <label>Semester</label>
+              <select id="semester">
+                <option value="Odd">Odd Semester</option>
+                <option value="Even">Even Semester</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Academic Year</label>
+              <select id="academicYear">
+                <option value="2023-24">2023-24</option>
+                <option value="2024-25" selected>2024-25</option>
+                <option value="2025-26">2025-26</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" onclick="addActivity()">➕ Add Activity</button>
+            <a href="dashboard.html" class="btn btn-outline">← Back</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div id="toast"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

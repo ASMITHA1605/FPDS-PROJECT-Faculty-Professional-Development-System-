@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPDS — Reports</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="layout">
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">🎓 FPDS</div>
+      <div class="brand-tagline">Faculty Development System</div>
+    </div>
+    <div class="sidebar-section">Main</div>
+    <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard & Tracker</a>
+    <a href="activity.html"><span class="nav-icon">➕</span> Add Activity</a>
+    <a href="activity-list.html"><span class="nav-icon">📋</span> Activity History</a>
+    <div class="sidebar-section">Account</div>
+    <a href="profile.html"><span class="nav-icon">👤</span> My Profile</a>
+    <a href="report.html" class="active"><span class="nav-icon">📊</span> Reports</a>
+    <div class="sidebar-footer">
+      <a href="index.html"><span class="nav-icon">🚪</span> Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <h1>Faculty Development Report</h1>
+        <div class="header-sub">Summary of all faculty professional activities</div>
+      </div>
+      <button onclick="window.print()" class="btn btn-success">⬇️ Download Report</button>
+    </div>
+    <div class="page-body">
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <h2>Activity Summary by Faculty</h2>
+        </div>
+        <table class="data-table" id="reportTable">
+          <thead>
+            <tr>
+              <th>Faculty Name</th>
+              <th>Workshops</th>
+              <th>Conferences</th>
+              <th>FDP Programs</th>
+              <th>Publications</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="reportBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div id="toast"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

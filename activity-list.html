@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPDS — Activity History</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="layout">
+
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">🎓 FPDS</div>
+      <div class="brand-tagline">Faculty Development System</div>
+    </div>
+    <div class="sidebar-section">Main</div>
+    <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard & Tracker</a>
+    <a href="activity.html"><span class="nav-icon">➕</span> Add Activity</a>
+    <a href="activity-list.html" class="active"><span class="nav-icon">📋</span> Activity History</a>
+    <div class="sidebar-section">Account</div>
+    <a href="profile.html"><span class="nav-icon">👤</span> My Profile</a>
+    <a href="report.html"><span class="nav-icon">📊</span> Reports</a>
+    <div class="sidebar-footer">
+      <a href="index.html"><span class="nav-icon">🚪</span> Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="page-header">
+      <div>
+        <h1>Activity History</h1>
+        <div class="header-sub">All your recorded professional development activities</div>
+      </div>
+      <a href="activity.html" class="btn btn-primary">➕ Add Activity</a>
+    </div>
+    <div class="page-body">
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <h2>My Activities</h2>
+          <input class="search-input" id="actSearch" placeholder="🔍 Search activities..." oninput="filterActivities()">
+        </div>
+        <table class="data-table" id="activityTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Organizer</th>
+              <th>Department</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="activityBody"></tbody>
+        </table>
+        <div id="actEmpty" class="empty-state" style="display:none">
+          <div class="empty-icon">📭</div>
+          <p>No activities found. Start by adding one!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div id="toast"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

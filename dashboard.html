@@ -1,68 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>FPDS Professional Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPDS — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
+<div class="layout">
 
-<div class="navbar">
-    <h2>FPDS Dashboard</h2>
-    <div>
-        <a href="faculty.html">Manage Faculty</a>
-        <a href="index.html" onclick="logout()">Logout</a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">🎓 FPDS</div>
+      <div class="brand-tagline">Faculty Development System</div>
     </div>
+    <div class="sidebar-section">Main</div>
+    <a href="dashboard.html" class="active"><span class="nav-icon">🏠</span> Dashboard & Tracker</a>
+    <a href="activity.html"><span class="nav-icon">➕</span> Add Activity</a>
+    <a href="activity-list.html"><span class="nav-icon">📋</span> Activity History</a>
+    <div class="sidebar-section">Account</div>
+    <a href="profile.html"><span class="nav-icon">👤</span> My Profile</a>
+    <a href="report.html"><span class="nav-icon">📊</span> Reports</a>
+    <div class="sidebar-footer">
+      <a href="index.html" onclick="localStorage.clear()"><span class="nav-icon">🚪</span> Logout</a>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="page-header">
+      <div>
+        <h1 id="facultyName">Welcome</h1>
+        <div class="header-sub" id="headerDate"></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <button class="btn btn-outline" onclick="location.reload()" style="padding: 8px 12px; font-size: 12px;">🔄 Refresh Dashboard</button>
+        <div class="semester-badge" id="semesterBadge">Semester Tracker</div>
+      </div>
+    </div>
+
+    <div class="page-body">
+
+      <!-- Faculty Personal Details Header -->
+      <div class="chart-card-full" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: white; border: none; margin-bottom: 28px;">
+        <div class="chart-body" style="padding: 30px 40px;">
+          <div class="faculty-info-grid">
+            <div class="profile-avatar" id="dashAvatar" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; width: 90px; height: 90px; font-size: 36px;">👤</div>
+            <div>
+              <h2 id="infoName" style="font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 4px;">Dr. Ravi</h2>
+              <div style="display: flex; gap: 30px; opacity: 0.9; font-weight: 500;">
+                <p>Department: <span id="infoDept" style="font-weight: 700;">CSE</span></p>
+                <p>Experience: <span id="infoExp" style="font-weight: 700;">3 Years</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Cards -->
+      <div class="cards">
+        <div class="card c1">
+          <div class="card-icon">🛠️</div>
+          <h3>Workshop</h3>
+          <p id="workshopCount">0</p>
+        </div>
+        <div class="card c2">
+          <div class="card-icon">🎤</div>
+          <h3>Conference</h3>
+          <p id="conferenceCount">0</p>
+        </div>
+        <div class="card c3">
+          <div class="card-icon">📚</div>
+          <h3>FDP</h3>
+          <p id="fdpCount">0</p>
+        </div>
+        <div class="card c4">
+          <div class="card-icon">📝</div>
+          <h3>Publication</h3>
+          <p id="publicationCount">0</p>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        
+        <!-- Module 3: Semester Target Progress -->
+        <div class="target-tracker">
+          <div class="chart-header" style="border: none; padding: 0 0 15px 0;">
+            <h2 style="font-size: 16px;">Semester Target Progress</h2>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 10px; font-weight: 600;">Target: 4 | Completed: <span id="targetCompleted" style="color: var(--primary);">0</span></p>
+          <div class="progress-container">
+            <div class="progress-bar" id="targetProgress" style="width: 0%"></div>
+          </div>
+          
+          <div class="suggestion-box" id="suggestionBox" style="display: none; background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--warning);">
+            <p id="suggestionText" style="font-weight: 600; color: var(--text-primary);"></p>
+          </div>
+          <div id="targetSuccess" style="display: none; background: #dcfce7; border-left: 4px solid #10b981; padding: 12px; border-radius: 4px; color: #15803d; font-weight: 700; font-size: 13px;">
+            🎉 Target Reached! Max credit earned.
+          </div>
+        </div>
+
+        <!-- Module 4: Credits Earned -->
+        <div class="reward-card">
+          <h2>Credits Earned</h2>
+          <div class="reward-amount">
+            <span class="reward-currency">₹</span><span id="creditAmount">0</span>
+          </div>
+          <p style="font-size: 12px; opacity: 0.6; margin-top: 10px;">Institutional performance credit</p>
+        </div>
+
+      </div>
+
+      <!-- Improvement Tracker -->
+      <div class="chart-card-full">
+        <div class="chart-header">
+          <h2 id="impTitle">Improvement Tracker (2023 - 2025)</h2>
+          <span>Yearly Professional Development Progress</span>
+        </div>
+        <div class="chart-body" style="height: 320px;">
+          <canvas id="improvementChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Bottom Modules -->
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h2>Department Comparison</h2>
+          </div>
+          <div class="chart-body" style="height: 250px;">
+            <canvas id="deptChart"></canvas>
+          </div>
+        </div>
+        <div class="leaderboard-card">
+          <div class="chart-header">
+            <h2>🏆 Leaderboard</h2>
+          </div>
+          <div id="leaderboard"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<div class="dashboard-container">
-
-    <h1 id="welcomeMessage"></h1>
-    <p id="todayDate"></p>
-
-    <div class="stats-grid">
-
-        <div class="stat-card">
-            <h3>Total Faculty</h3>
-            <p id="totalFaculty">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>Total Sessions</h3>
-            <p id="totalSessions">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>Total Leave Days</h3>
-            <p id="totalLeave">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>Performance Status</h3>
-            <p id="performanceStatus">Good</p>
-        </div>
-
-    </div>
-
-    <div class="report-section">
-        <h3>Faculty Workload & Leave Report</h3>
-
-        <table id="reportTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Sessions</th>
-                    <th>Leave Days</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-
-</div>
-
+<div id="toast"></div>
 <script src="js/script.js"></script>
 </body>
 </html>

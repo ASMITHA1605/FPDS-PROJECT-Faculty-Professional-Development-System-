@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "faculty",
+    "password": "1234"
+  },
+  {
+    "id": 2,
+    "name": "faculty",
+    "password": "1234"
+  },
+  {
+    "id": 3,
+    "name": "faculty",
+    "password": "1234"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Ravi",
+    "password": "ravi123"
+  },
+  {
+    "id": 5,
+    "name": "Prof. Anita",
+    "password": "anita456"
+  },
+  {
+    "id": 6,
+    "name": "Dr. Sanjay",
+    "password": "sanjay789"
+  },
+  {
+    "id": 7,
+    "name": "Mrs. Priya",
+    "password": "priya321"
+  },
+  {
+    "id": 8,
+    "name": "admin",
+    "password": "admin123"
+  },
+  {
+    "id": 9,
+    "name": "Test Faculty",
+    "password": "test123"
+  }
+]
