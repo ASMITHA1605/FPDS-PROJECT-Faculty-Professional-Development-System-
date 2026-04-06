@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 const JWT_SECRET = "fpds_secret_key_2026"; // In production, use env variable
+const DEMO_MODE = true; // Set to false to use the real database!
 
 app.use(cors());
 app.use(express.json());
@@ -56,14 +57,23 @@ app.post("/login", (req, res) => {
 
 // ADD ACTIVITY
 app.post("/addActivity", verifyToken, (req, res) => {
+    // Demo mode bypass
+    if (DEMO_MODE) {
+        return res.json({
+            success: true,
+            message: "Activity Added (Demo Mode)",
+            status: "APPROVED"
+        });
+    }
+
     const { faculty, type, title, date, organizer, department, semester, academic_year } = req.body;
     // Automatically set status to PENDING for faculty, APPROVED for admin
     const status = (req.userRole === "admin") ? "APPROVED" : "PENDING";
-    
+
     const sql = `
-    INSERT INTO activities 
-    (faculty_name, activity_type, title, date, organizer, department, semester, academic_year, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO activities 
+        (faculty_name, activity_type, title, date, organizer, department, semester, academic_year, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
     db.query(sql, [faculty, type, title, date, organizer, department, semester, academic_year, status], (err, result) => {
         if (err) return res.status(500).json({ error: err });
@@ -153,7 +163,7 @@ app.get("/improvement/:faculty", verifyToken, (req, res) => {
     `;
     db.query(sql, [faculty], (err, result) => {
         if (err) return res.status(500).json({ error: err });
-        const sorted = result.sort((a,b) => a.year - b.year);
+        const sorted = result.sort((a, b) => a.year - b.year);
         const formatted = sorted.map(r => ({
             year: r.year.toString(),
             workshops: r.workshops,
@@ -249,7 +259,7 @@ app.get("/admin/faculty-summary", verifyToken, isAdmin, (req, res) => {
     `;
     db.query(sql, (err, result) => {
         if (err) return res.status(500).json({ error: err });
-        
+
         const creditSql = `
             SELECT faculty_name, COUNT(*) as count 
             FROM activities 
@@ -258,7 +268,7 @@ app.get("/admin/faculty-summary", verifyToken, isAdmin, (req, res) => {
         `;
         db.query(creditSql, (err, creditsRows) => {
             if (err) return res.status(500).json({ error: err });
-            
+
             const facultyCredits = {};
             creditsRows.forEach(r => {
                 facultyCredits[r.faculty_name] = Math.min(r.count, 4) * 500;
