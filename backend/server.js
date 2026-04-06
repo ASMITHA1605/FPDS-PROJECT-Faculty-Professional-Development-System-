@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 const JWT_SECRET = "fpds_secret_key_2026"; // In production, use env variable
-const DEMO_MODE = true; // Set to false to use the real database!
+const DEMO_MODE = false; // Set to false to use the real database!
 
 app.use(cors());
 app.use(express.json());
@@ -83,12 +83,14 @@ app.post("/addActivity", verifyToken, (req, res) => {
 
 // GET ACTIVITIES
 app.get("/activities", verifyToken, (req, res) => {
-    let sql = "SELECT * FROM activities WHERE status = 'APPROVED' ORDER BY date DESC";
+    let sql = "SELECT * FROM activities WHERE status = 'APPROVED' OR faculty_name = ? ORDER BY date DESC";
+    let params = [req.userName];
     // Admin can see all, faculty only their own and approved ones
     if (req.userRole === "admin") {
         sql = "SELECT * FROM activities ORDER BY date DESC";
+        params = [];
     }
-    db.query(sql, (err, result) => {
+    db.query(sql, params, (err, result) => {
         if (err) return res.status(500).json({ error: err });
         res.json(result);
     });
