@@ -3,7 +3,7 @@
 //  script.js — Unified & Consolidated Logic
 // =============================================
 
-const API = "http://localhost:8080";
+const API = "https://your-app-name.onrender.com"; // UPDATE THIS BEFORE DEPLOYING FRONTEND
 let charts = {}; // To store chart instances
 
 // ── Toast Notification ──────────────────────
