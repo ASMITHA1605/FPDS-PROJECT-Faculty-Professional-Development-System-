@@ -1,4 +1,4 @@
-const API = "https://your-app-name.onrender.com"; // UPDATE THIS BEFORE DEPLOYING FRONTEND
+const API = "https://fpds-project-faculty-professional.onrender.com"; // UPDATE THIS BEFORE DEPLOYING FRONTEND
 let adminCharts = {};
 
 document.addEventListener("DOMContentLoaded", () => {
