@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FPDS — Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -15,18 +16,18 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <div class="sidebar-brand">
-        <div class="brand-name">🎓 FPDS</div>
+        <div class="brand-name"><i class="fa-solid fa-graduation-cap"></i> FPDS</div>
         <div class="brand-tagline">Faculty Development System</div>
       </div>
       <div class="sidebar-section">Main</div>
-      <a href="dashboard.html" class="active"><span class="nav-icon">🏠</span> Dashboard & Tracker</a>
-      <a href="activity.html"><span class="nav-icon">➕</span> Add Activity</a>
-      <a href="activity-list.html"><span class="nav-icon">📋</span> Activity History</a>
+      <a href="dashboard.html" class="active"><span class="nav-icon"><i class="fa-solid fa-house"></i></span> Dashboard & Tracker</a>
+      <a href="activity.html"><span class="nav-icon"><i class="fa-solid fa-plus"></i></span> Add Activity</a>
+      <a href="activity-list.html"><span class="nav-icon"><i class="fa-solid fa-list-check"></i></span> Activity History</a>
       <div class="sidebar-section">Account</div>
-      <a href="profile.html"><span class="nav-icon">👤</span> My Profile</a>
-      <a href="report.html"><span class="nav-icon">📊</span> Reports</a>
+      <a href="profile.html"><span class="nav-icon"><i class="fa-solid fa-user-gear"></i></span> My Profile</a>
+      <a href="report.html"><span class="nav-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span> Reports</a>
       <div class="sidebar-footer">
-        <a href="index.html" onclick="localStorage.clear()"><span class="nav-icon">🚪</span> Logout</a>
+        <a href="index.html" onclick="localStorage.clear()"><span class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i></span> Logout</a>
       </div>
     </div>
 
@@ -48,10 +49,10 @@
       <div class="page-body">
         
         <!-- Pending for Approval Alert (Hidden by default) -->
-        <div id="pendingAlert" class="glass" style="display:none; padding: 15px 25px; border-radius: var(--radius-md); border-left: 5px solid var(--warning); background: rgba(245, 158, 11, 0.05); margin-bottom: 25px;">
+        <div id="pendingAlert" class="glass" style="display:none; padding: 20px 25px; border-radius: var(--radius-md); border-left: 5px solid var(--warning); background: rgba(245, 158, 11, 0.08); margin-bottom: 25px;">
           <div style="display: flex; align-items: center; gap: 15px;">
-            <span style="font-size: 24px;">⏳</span>
-            <span id="pendingText" style="font-weight: 600; color: var(--text-primary);">You have an activity waiting for Admin approval.</span>
+            <span style="font-size: 24px; color: var(--warning);"><i class="fa-solid fa-hourglass-half"></i></span>
+            <span id="pendingText" style="font-weight: 700; color: var(--text-primary); font-size: 15px;">You have an activity waiting for Admin approval.</span>
           </div>
         </div>
 
@@ -74,22 +75,22 @@
         <!-- Activity Cards -->
         <div class="cards">
           <div class="card c1">
-            <div class="card-icon">🛠️</div>
+            <div class="card-icon"><i class="fa-solid fa-toolbox"></i></div>
             <h3>Workshop</h3>
             <p id="workshopCount">0</p>
           </div>
           <div class="card c2">
-            <div class="card-icon">🎤</div>
+            <div class="card-icon"><i class="fa-solid fa-microphone"></i></div>
             <h3>Conference</h3>
             <p id="conferenceCount">0</p>
           </div>
           <div class="card c3">
-            <div class="card-icon">📚</div>
+            <div class="card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
             <h3>FDP</h3>
             <p id="fdpCount">0</p>
           </div>
           <div class="card c4">
-            <div class="card-icon">📝</div>
+            <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
             <h3>Publication</h3>
             <p id="publicationCount">0</p>
           </div>
