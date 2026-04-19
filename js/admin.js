@@ -1,4 +1,4 @@
-const API = window.location.hostname === "localhost" ? "http://localhost:8080" : window.location.origin;
+const API = window.location.hostname === "localhost" ? "http://localhost:8080" : "https://fpds-project-faculty-professional.onrender.com";
 let adminCharts = {};
 
 document.addEventListener("DOMContentLoaded", () => {
