@@ -12,6 +12,52 @@ const DEMO_MODE = false; // Set to false to use the real database!
 app.use(cors());
 app.use(express.json());
 
+// ============================================
+//  DATABASE INITIALIZATION
+// ============================================
+const initDB = () => {
+    const createFaculty = `
+        CREATE TABLE IF NOT EXISTS faculty (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(100) NOT NULL UNIQUE,
+            department VARCHAR(100),
+            password VARCHAR(100),
+            experience_years INT DEFAULT 0
+        );
+    `;
+    const createActivities = `
+        CREATE TABLE IF NOT EXISTS activities (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            faculty_name VARCHAR(100),
+            activity_type VARCHAR(50),
+            title VARCHAR(200),
+            date DATE,
+            organizer VARCHAR(100),
+            department VARCHAR(100),
+            semester VARCHAR(20),
+            academic_year VARCHAR(20),
+            status VARCHAR(20) DEFAULT 'PENDING'
+        );
+    `;
+    const seedAdmin = `
+        INSERT IGNORE INTO faculty (name, department, password, experience_years)
+        VALUES ('admin', 'Administration', 'admin123', 0);
+    `;
+
+    db.query(createFaculty, (err) => {
+        if (err) console.error("Error creating faculty table:", err.message);
+        db.query(createActivities, (err) => {
+            if (err) console.error("Error creating activities table:", err.message);
+            db.query(seedAdmin, (err) => {
+                if (err) console.error("Error seeding admin:", err.message);
+                else console.log("✅ Database initialized and admin user verified.");
+            });
+        });
+    });
+};
+initDB();
+
+
 // SERVE STATIC FILES
 app.use(express.static(path.join(__dirname, "..")));
 
