@@ -44,7 +44,7 @@ async function fetchAuth(url, options = {}) {
 function login() {
   const role = document.getElementById("role").value;
   const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value;
+  const password = document.getElementById("password").value.trim();
 
   if (!username || !password) return showToast("Enter credentials", "error");
 
