@@ -3,13 +3,12 @@
    Modern Design System
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
 /* ── CSS Variables ── */
-:root {
-  --primary:       #4f46e5;
-  --primary-dark:  #3730a3;
-  --primary-light: #818cf8;
+  --primary:       #6366f1;
+  --primary-dark:  #4338ca;
+  --primary-light: #a5b4fc;
   --accent:        #06b6d4;
   --success:       #10b981;
   --warning:       #f59e0b;
@@ -18,25 +17,43 @@
   --sidebar-bg:    #0f172a;
   --sidebar-text:  #94a3b8;
   --sidebar-hover: #1e293b;
-  --sidebar-active:#4f46e5;
+  --sidebar-active:#6366f1;
 
-  --bg:            #f1f5f9;
+  --bg:            #f8fafc;
   --surface:       #ffffff;
-  --surface-2:     #f8fafc;
+  --surface-2:     #f1f5f9;
   --border:        #e2e8f0;
 
   --text-primary:  #0f172a;
-  --text-secondary:#64748b;
+  --text-secondary:#475569;
   --text-muted:    #94a3b8;
 
-  --shadow-sm:  0 1px 3px rgba(0,0,0,.08);
-  --shadow-md:  0 4px 16px rgba(0,0,0,.10);
-  --shadow-lg:  0 10px 40px rgba(0,0,0,.14);
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg:  0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  --shadow-xl:  0 25px 50px -12px rgba(0,0,0,0.25);
 
-  --radius-sm:  6px;
-  --radius-md:  12px;
-  --radius-lg:  18px;
-  --radius-xl:  24px;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  30px;
+
+  --font-main:  'Inter', sans-serif;
+  --font-display:'Outfit', sans-serif;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ── Reset ── */
@@ -55,20 +72,26 @@ body {
    ========================================= */
 
 .reward-card {
-  background: linear-gradient(145deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
   border-radius: var(--radius-lg);
-  padding: 30px;
+  padding: 40px 30px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-xl);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  min-height: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reward-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 30px 60px -12px rgba(0,0,0,0.45);
 }
 
 .reward-card::before {
@@ -83,12 +106,13 @@ body {
 }
 
 .reward-card h2 {
-  font-size: 11px;
+  font-family: var(--font-display);
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #94a3b8;
+  letter-spacing: 3px;
+  color: var(--primary-light);
   margin-bottom: 12px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .reward-amount {
@@ -223,11 +247,13 @@ body {
   background: var(--surface);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  width: 780px;
+  box-shadow: var(--shadow-xl);
+  width: 900px;
+  min-height: 540px;
   max-width: 96vw;
   position: relative;
   z-index: 1;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .login-left {
@@ -295,10 +321,12 @@ body {
 }
 
 .login-box h2 {
-  font-size: 26px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 8px;
+  letter-spacing: -1px;
 }
 
 .login-box .login-subtitle {
@@ -391,8 +419,9 @@ body {
 }
 
 .sidebar-brand .brand-name {
-  font-size: 20px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
   color: white;
   letter-spacing: -0.5px;
 }
@@ -473,9 +502,11 @@ body {
 }
 
 .page-header h1 {
-  font-size: 20px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
 .page-header .header-sub {
@@ -502,15 +533,18 @@ body {
 .card {
   background: var(--surface);
   border-radius: var(--radius-md);
-  padding: 22px 24px;
+  padding: 24px;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
-  transition: box-shadow .2s, transform .2s;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card:hover { 
+  box-shadow: var(--shadow-lg); 
+  transform: translateY(-8px); 
+}
 
 .card::before {
   content: '';
@@ -724,20 +758,27 @@ body {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
   border-radius: var(--radius-sm);
   font-size: 14px;
-  font-weight: 600;
-  font-family: inherit;
+  font-weight: 700;
+  font-family: var(--font-main);
   cursor: pointer;
   border: none;
-  transition: opacity .18s, transform .15s;
+  transition: all 0.2s ease;
   text-decoration: none;
   line-height: 1;
+  letter-spacing: 0.3px;
 }
 
-.btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn:hover { 
+  opacity: 1; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 .btn:active { transform: translateY(0); }
 
 .btn-primary  { background: var(--primary); color: white; }
