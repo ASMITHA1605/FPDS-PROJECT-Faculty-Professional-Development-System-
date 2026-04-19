@@ -254,7 +254,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #312e81 100%);
+  background: #0f172a; /* Solid dark background for robustness */
   position: relative;
   overflow: hidden;
 }
@@ -292,14 +292,14 @@ body {
 }
 
 .login-left {
-  background: linear-gradient(160deg, #4f46e5, #06b6d4);
+  background: linear-gradient(160deg, #4f46e5, #0891b2);
   color: white;
-  padding: 50px 40px;
-  width: 320px;
+  padding: 60px 40px;
+  width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
@@ -407,22 +407,28 @@ body {
 
 .login-box button {
   width: 100%;
-  padding: 13px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white;
+  padding: 15px;
+  background: var(--primary); /* High contrast solid color */
+  color: white !important;
   border: none;
   border-radius: var(--radius-sm);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 800;
   font-family: inherit;
   cursor: pointer;
-  transition: opacity .2s, transform .15s;
-  margin-top: 6px;
-  letter-spacing: .3px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 10px;
+  letter-spacing: .5px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
-.login-box button:hover { opacity: .9; transform: translateY(-1px); }
-.login-box button:active { transform: translateY(0); }
+.login-box button:hover { 
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.login-box button:active { transform: translateY(-1px); }
 
 /* =========================================
    DASHBOARD LAYOUT
@@ -435,9 +441,9 @@ body {
 
 /* ── Sidebar ── */
 .sidebar {
-  width: 240px;
-  background: var(--sidebar-bg);
-  color: var(--sidebar-text);
+  width: 280px;
+  background: #0f172a; /* Force dark background */
+  color: #94a3b8;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -445,7 +451,8 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow-y: auto;
+  z-index: 1000;
+  border-right: 1px solid rgba(255,255,255,0.08);
 }
 
 .sidebar-brand {

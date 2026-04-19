@@ -62,9 +62,17 @@ const initDB = () => {
             if (err) console.error("Error creating activities table:", err.message);
             db.query(seedUsers, (err) => {
                 if (err) console.error("Error seeding users:", err.message);
-                db.query(seedActivities, (err) => {
-                    if (err) console.error("Error seeding activities:", err.message);
-                    else console.log("✅ Database initialized and sample data seeded.");
+                
+                // Smart Seeding: Only seed activities if the table is empty
+                db.query("SELECT COUNT(*) as count FROM activities", (err, result) => {
+                    if (!err && result[0].count === 0) {
+                        db.query(seedActivities, (err) => {
+                            if (err) console.error("Error seeding activities:", err.message);
+                            else console.log("✅ Initialized: Empty database detected, seeded sample data.");
+                        });
+                    } else {
+                        console.log("✅ Initialized: Database already has records, skipping seeding.");
+                    }
                 });
             });
         });
