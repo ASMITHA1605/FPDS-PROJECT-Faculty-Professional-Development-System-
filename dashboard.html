@@ -46,6 +46,14 @@
       </div>
 
       <div class="page-body">
+        
+        <!-- Pending for Approval Alert (Hidden by default) -->
+        <div id="pendingAlert" class="glass" style="display:none; padding: 15px 25px; border-radius: var(--radius-md); border-left: 5px solid var(--warning); background: rgba(245, 158, 11, 0.05); margin-bottom: 25px;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 24px;">⏳</span>
+            <span id="pendingText" style="font-weight: 600; color: var(--text-primary);">You have an activity waiting for Admin approval.</span>
+          </div>
+        </div>
 
         <!-- Faculty Personal Details Header -->
         <div class="hero-card">

@@ -153,20 +153,34 @@ if (onPage("dashboard.html")) {
 
       let counts = { Workshop: 0, Conference: 0, FDP: 0, Publication: 0 };
       let semTotal = 0;
+      let pendingCount = 0;
       const deptMap = {};
-      const foundTypes = { Workshop: false, Conference: false, FDP: false, Publication: false };
 
       activities.forEach(a => {
         deptMap[a.department] = (deptMap[a.department] || 0) + 1;
         if (a.faculty_name === user) {
-          if (counts[a.activity_type] !== undefined) counts[a.activity_type]++;
-          // Check Semester match
-          if (a.semester === currentSem && (a.academic_year === currentYearStr || !a.academic_year)) {
-            semTotal++;
-            foundTypes[a.activity_type] = true;
+          // IMPORTANT: Only count APPROVED activities for stats and credits
+          if (a.status === 'APPROVED') {
+            if (counts[a.activity_type] !== undefined) counts[a.activity_type]++;
+            if (a.semester === currentSem && (a.academic_year === currentYearStr || !a.academic_year)) {
+              semTotal++;
+            }
+          } else if (a.status === 'PENDING') {
+            pendingCount++;
           }
         }
       });
+
+      // Update Pending Alert
+      const pAlert = document.getElementById("pendingAlert");
+      if (pAlert) {
+        if (pendingCount > 0) {
+            pAlert.style.display = "block";
+            document.getElementById("pendingText").textContent = `You have ${pendingCount} activity waiting for Admin approval.`;
+        } else {
+            pAlert.style.display = "none";
+        }
+      }
 
       // Update Dashboard Counters
       const setVal = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val; };
