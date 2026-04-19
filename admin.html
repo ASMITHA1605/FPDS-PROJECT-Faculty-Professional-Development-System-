@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPDS — Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=999">
+    <link rel="stylesheet" href="css/style.css?v=1001">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -67,47 +67,35 @@
             <div class="p-8 overflow-y-auto bg-slate-50">
                 <!-- Summary Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-8">
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div class="text-indigo-600 bg-indigo-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-users"></i></div>
-                        <div>
-                            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Total Faculty</p>
-                            <h3 class="text-2xl font-black text-slate-800" id="statFaculty">0</h3>
-                        </div>
+                    <div class="card c1">
+                        <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                        <h3>Total Faculty</h3>
+                        <p id="statFaculty">0</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div class="text-blue-600 bg-blue-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-toolbox"></i></div>
-                        <div>
-                            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Workshops</p>
-                            <h3 class="text-2xl font-black text-slate-800" id="statWorkshops">0</h3>
-                        </div>
+                    <div class="card c2">
+                        <div class="card-icon"><i class="fa-solid fa-toolbox"></i></div>
+                        <h3>Workshops</h3>
+                        <p id="statWorkshops">0</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div class="text-teal-600 bg-teal-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-microphone"></i></div>
-                        <div>
-                            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Conferences</p>
-                            <h3 class="text-2xl font-black text-slate-800" id="statConferences">0</h3>
-                        </div>
+                    <div class="card c3">
+                        <div class="card-icon"><i class="fa-solid fa-microphone"></i></div>
+                        <h3>Conferences</h3>
+                        <p id="statConferences">0</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div class="text-green-600 bg-green-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-book-open-reader"></i></div>
-                        <div>
-                            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">FDP Programs</p>
-                            <h3 class="text-2xl font-black text-slate-800" id="statFDP">0</h3>
-                        </div>
+                    <div class="card c3" style="background: #eef2ff;"> <!-- Emerald Variant -->
+                        <div class="card-icon" style="background: #f0fdf4; color: #22c55e;"><i class="fa-solid fa-book-open-reader"></i></div>
+                        <h3>FDP Programs</h3>
+                        <p id="statFDP">0</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                        <div class="text-orange-600 bg-orange-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-pen-nib"></i></div>
-                        <div>
-                            <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Publications</p>
-                            <h3 class="text-2xl font-black text-slate-800" id="statPublications">0</h3>
-                        </div>
+                    <div class="card c4">
+                        <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                        <h3>Publications</h3>
+                        <p id="statPublications">0</p>
                     </div>
-                    <div class="hero-card p-6 flex flex-col justify-between" style="margin-bottom: 0;">
-                        <div class="bg-white/20 w-10 h-10 rounded-lg flex items-center justify-center mb-4 font-bold text-xl"><i class="fa-solid fa-gem"></i></div>
-                        <div>
-                            <p class="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">Total Credits</p>
-                            <h3 class="text-2xl font-black" id="statCredits" style="color: white;">₹0</h3>
-                        </div>
+                    <div class="card hero-card" style="padding: 24px; align-items: flex-start; text-align: left; background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2); color: white;"><i class="fa-solid fa-gem"></i></div>
+                        <h3 style="color: rgba(255,255,255,0.7);">Total Credits</h3>
+                        <p id="statCredits" style="color: white;">₹0</p>
                     </div>
                 </div>
 
