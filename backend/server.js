@@ -63,16 +63,13 @@ const initDB = () => {
             db.query(seedUsers, (err) => {
                 if (err) console.error("Error seeding users:", err.message);
                 
-                // Smart Seeding: Only seed activities if the table is empty
-                db.query("SELECT COUNT(*) as count FROM activities", (err, result) => {
-                    if (!err && result[0].count === 0) {
-                        db.query(seedActivities, (err) => {
-                            if (err) console.error("Error seeding activities:", err.message);
-                            else console.log("✅ Initialized: Empty database detected, seeded sample data.");
-                        });
-                    } else {
-                        console.log("✅ Initialized: Database already has records, skipping seeding.");
-                    }
+                // FINAL CLEAN SWEEP: Wipe all existing activities to clear the "4 Workshops" mess
+                // This ensures we start fresh with the 5 high-quality samples.
+                db.query("DELETE FROM activities", (err) => {
+                    db.query(seedActivities, (err) => {
+                        if (err) console.error("Error seeding activities:", err.message);
+                        else console.log("✅ Database Cleaned & High-Quality Data Seeded.");
+                    });
                 });
             });
         });
