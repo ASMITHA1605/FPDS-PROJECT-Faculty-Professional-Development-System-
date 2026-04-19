@@ -39,18 +39,21 @@ const initDB = () => {
             status VARCHAR(20) DEFAULT 'PENDING'
         );
     `;
-    const seedAdmin = `
-        INSERT IGNORE INTO faculty (name, department, password, experience_years)
-        VALUES ('admin', 'Administration', 'admin123', 0);
+    const seedUsers = `
+        INSERT IGNORE INTO faculty (name, department, password, experience_years) VALUES 
+        ('admin', 'Administration', 'admin123', 0),
+        ('Dr. Ravi Kumar', 'CSE', 'faculty123', 5),
+        ('Dr. Priya Sharma', 'ECE', 'faculty123', 8),
+        ('Prof. Suresh Babu', 'MECH', 'faculty123', 12);
     `;
 
     db.query(createFaculty, (err) => {
         if (err) console.error("Error creating faculty table:", err.message);
         db.query(createActivities, (err) => {
             if (err) console.error("Error creating activities table:", err.message);
-            db.query(seedAdmin, (err) => {
-                if (err) console.error("Error seeding admin:", err.message);
-                else console.log("✅ Database initialized and admin user verified.");
+            db.query(seedUsers, (err) => {
+                if (err) console.error("Error seeding users:", err.message);
+                else console.log("✅ Database initialized and users seeded.");
             });
         });
     });
