@@ -47,13 +47,25 @@ const initDB = () => {
         ('Prof. Suresh Babu', 'MECH', 'faculty123', 12);
     `;
 
+    const seedActivities = `
+        INSERT IGNORE INTO activities (faculty_name, activity_type, title, date, organizer, department, semester, academic_year, status) VALUES
+        ('Dr. Ravi Kumar', 'Workshop', 'Cloud Computing', '2024-03-15', 'Google', 'CSE', 'Even', '2023-24', 'APPROVED'),
+        ('Dr. Ravi Kumar', 'Conference', 'AI Trends', '2025-06-10', 'IEEE', 'CSE', 'Odd', '2024-25', 'APPROVED'),
+        ('Dr. Ravi Kumar', 'Workshop', 'React Development', '2026-04-10', 'Meta', 'CSE', 'Even', '2025-26', 'APPROVED'),
+        ('Dr. Priya Sharma', 'Publication', 'IoT Security', '2024-11-20', 'Springer', 'ECE', 'Odd', '2024-25', 'APPROVED'),
+        ('Dr. Priya Sharma', 'FDP', 'Embedded Systems', '2025-02-15', 'NPTEL', 'ECE', 'Even', '2024-25', 'APPROVED');
+    `;
+
     db.query(createFaculty, (err) => {
         if (err) console.error("Error creating faculty table:", err.message);
         db.query(createActivities, (err) => {
             if (err) console.error("Error creating activities table:", err.message);
             db.query(seedUsers, (err) => {
                 if (err) console.error("Error seeding users:", err.message);
-                else console.log("✅ Database initialized and users seeded.");
+                db.query(seedActivities, (err) => {
+                    if (err) console.error("Error seeding activities:", err.message);
+                    else console.log("✅ Database initialized and sample data seeded.");
+                });
             });
         });
     });
