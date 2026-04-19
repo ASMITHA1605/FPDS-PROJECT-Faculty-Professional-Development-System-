@@ -3,7 +3,7 @@
 //  script.js — Unified & Consolidated Logic
 // =============================================
 
-const API = "https://fpds-project-faculty-professional.onrender.com"; // UPDATE THIS BEFORE DEPLOYING FRONTEND
+const API = window.location.hostname === "localhost" ? "http://localhost:8080" : window.location.origin;
 let charts = {}; // To store chart instances
 
 // ── Toast Notification ──────────────────────
