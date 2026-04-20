@@ -7,39 +7,40 @@
   <title>FPDS — Login</title>
   <meta name="description" content="Faculty Professional Development System — Login Portal">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/design_final.css?v=5000">
+  <link rel="stylesheet" href="css/design_final.css?v=6000">
   <style>
-    /* AESTHETIC SYNC: Perfect Match for Visual Reference */
+    /* MINIMALIST AESTHETIC OVERRIDE */
     .login-container { 
       background: #ffffff !important; 
-      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.3) !important; 
-      border-radius: 40px !important; /* Higher precision roundness */
-      width: 960px !important;
+      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.2) !important; 
+      border-radius: 40px !important;
+      width: 940px !important;
+      border: 1px solid rgba(0,0,0,0.05) !important;
     }
-    .login-box { background: #ffffff !important; padding: 60px 55px !important; }
-    .login-box label { font-size: 11px !important; color: #94a3b8 !important; letter-spacing: 1px !important; }
+    .login-box { background: #ffffff !important; padding: 70px 60px !important; }
+    .login-box label { font-size: 11px !important; color: #64748b !important; letter-spacing: 1.5px !important; font-weight: 700 !important; }
     .login-box input, .login-box select { 
-      background: #f8faff !important; /* Very light blue-white */
-      border: 1.5px solid #eef2ff !important; 
-      padding: 16px !important; 
+      background: #ffffff !important; 
+      border: 1px solid #e2e8f0 !important; 
+      padding: 18px !important; 
       border-radius: 12px !important; 
+      font-size: 15px !important;
     }
+    .login-box input:focus { border-color: #4f46e5 !important; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.05) !important; }
     .login-box button { 
       background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%) !important; 
       font-weight: 800 !important; 
       color: white !important; 
-      border-radius: 10px !important;
-      margin-top: 20px !important; 
-      padding: 18px !important; 
-      box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4) !important; 
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
+      border-radius: 12px !important;
+      margin-top: 25px !important; 
+      padding: 20px !important; 
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4) !important; 
+      letter-spacing: 0.5px !important;
     }
-    .login-box h2 { color: #0f172a !important; font-size: 38px !important; font-weight: 900 !important; letter-spacing: -1.5px !important; }
-    .login-left { background: linear-gradient(160deg, #4f46e5, #0891b2) !important; width: 400px !important; padding: 60px 45px !important; }
-    .feature-item i { color: rgba(255,255,255,0.7) !important; font-size: 20px !important; }
+    .login-box h2 { color: #0f172a !important; font-size: 42px !important; font-weight: 900 !important; letter-spacing: -2px !important; margin-bottom: 10px !important; }
+    .login-left { background: linear-gradient(160deg, #4f46e5, #0891b2) !important; width: 380px !important; padding: 70px 50px !important; }
+    .feature-item { gap: 15px !important; margin-bottom: 5px !important; }
+    .feature-item i { color: rgba(255,255,255,0.6) !important; font-size: 22px !important; }
   </style>
 </head>
 
