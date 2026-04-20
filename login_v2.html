@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPDS — Login</title>
+  <meta name="description" content="Faculty Professional Development System — Login Portal">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/design_final.css?v=6000">
+  <style>
+    /* MINIMALIST AESTHETIC OVERRIDE */
+    .login-container { 
+      background: #ffffff !important; 
+      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.2) !important; 
+      border-radius: 40px !important;
+      width: 940px !important;
+      border: 1px solid rgba(0,0,0,0.05) !important;
+    }
+    .login-box { background: #ffffff !important; padding: 70px 60px !important; }
+    .login-box label { font-size: 11px !important; color: #64748b !important; letter-spacing: 1.5px !important; font-weight: 700 !important; }
+    .login-box input, .login-box select { 
+      background: #ffffff !important; 
+      border: 1px solid #e2e8f0 !important; 
+      padding: 18px !important; 
+      border-radius: 12px !important; 
+      font-size: 15px !important;
+    }
+    .login-box input:focus { border-color: #4f46e5 !important; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.05) !important; }
+    .login-box button { 
+      background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%) !important; 
+      font-weight: 800 !important; 
+      color: white !important; 
+      border-radius: 12px !important;
+      margin-top: 25px !important; 
+      padding: 20px !important; 
+      box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4) !important; 
+      letter-spacing: 0.5px !important;
+    }
+    .login-box h2 { color: #0f172a !important; font-size: 42px !important; font-weight: 900 !important; letter-spacing: -2px !important; margin-bottom: 10px !important; }
+    .login-left { background: linear-gradient(160deg, #4f46e5, #0891b2) !important; width: 380px !important; padding: 70px 50px !important; }
+    .feature-item { gap: 15px !important; margin-bottom: 5px !important; }
+    .feature-item i { color: rgba(255,255,255,0.6) !important; font-size: 22px !important; }
+  </style>
+</head>
+
+<body class="login-page">
+
+  <div class="login-container">
+
+    <div class="login-left">
+      <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h1>FPDS</h1>
+      <div class="brand-sub">Faculty Development</div>
+      <p>Track your professional growth, workshops, conferences, FDP programs and publications — all in one place.</p>
+      <div class="features">
+        <div class="feature-item"><i class="fa-solid fa-chart-line"></i><span>Performance Analytics</span></div>
+        <div class="feature-item"><i class="fa-solid fa-trophy"></i><span>Faculty Leaderboard</span></div>
+        <div class="feature-item"><i class="fa-solid fa-arrow-trend-up"></i><span>Improvement Tracker</span></div>
+        <div class="feature-item"><i class="fa-solid fa-file-contract"></i><span>Detailed Reports</span></div>
+      </div>
+    </div>
+
+    <div class="login-box">
+      <h2>Welcome Back</h2>
+      <p class="login-subtitle">Sign in to your account to continue</p>
+
+      <div class="form-group">
+        <label>Role</label>
+        <select id="role">
+          <option value="faculty">Faculty</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+      </div>
+
+      <button onclick="login()">Sign In →</button>
+    </div>
+
+  </div>
+
+  <div id="toast"></div>
+  
+  <!-- Version Debug Indicator -->
+  <div style="position: fixed; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); color: white; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 800; z-index: 9999; pointer-events: none;">
+    FPDS V2.0 - AESTHETIC SYNC
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
+
+<footer style="text-align:center; padding:10px; margin-top:20px;">
+  © 2026 Faculty Professional Development System | Developed by Asmitha H
+</footer>
